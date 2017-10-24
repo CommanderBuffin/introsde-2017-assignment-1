@@ -76,3 +76,54 @@ public static String getActivityPlace(String personId) throws XPathExpressionExc
 	return s;
 }
 ```
+
+The following code is used to read all people and them from the XML file after the person parsing:
+
+```
+private static NodeList getPeople() throws XPathExpressionException {
+	XPathExpression expr = xpath.compile("/people/person");
+	NodeList nodes = (NodeList) expr.evaluate(doc, XPathConstants.NODESET);
+	return nodes;
+}
+
+public static String printPeople(){
+	String r="";
+	NodeList people;
+	try {
+		people = getPeople();
+		for (int i = 0; i < people.getLength(); i++) {
+			Person p;
+			try {
+				p = NodeToPerson(people.item(i));
+				r+=p.toString()+"\r\n";
+			} catch (ParseException e) {
+				e.printStackTrace();
+			}	
+		}
+	} catch (XPathExpressionException e) {
+		e.printStackTrace();
+	}
+	return r;
+}
+```
+
+The following code is used to display filtered people using a condition ( >, <, =) and a date as parameters:
+
+```
+public static String getPeopleByActivityDate(String date, String condition) throws XPathExpressionException {
+	String r="";
+	String s_date = date.split("-")[0]+date.split("-")[2]+date.split("-")[1];
+	XPathExpression expr = xpath.compile("//person[(number(substring( translate(activitypreference/startdate,'-T:.',''),1,8)))"+condition+s_date+"]");
+	NodeList nodes = (NodeList) expr.evaluate(doc, XPathConstants.NODESET);
+	for (int i = 0; i < nodes.getLength(); i++) {
+		Person p;
+		try {
+			p = NodeToPerson(nodes.item(i));
+			r+=p.toString()+"\r\n";
+		} catch (ParseException e) {
+			e.printStackTrace();
+		}
+	}
+	return r;
+}
+```
