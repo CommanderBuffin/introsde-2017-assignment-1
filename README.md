@@ -7,7 +7,7 @@
 
 ### Code analysis
 
-** Parser method to Person from a "person" XML node **
+**Parser method to Person from a "person" XML node**
 
 The following code is used to parse a person node to a Person object getting subnodes as values:
 
