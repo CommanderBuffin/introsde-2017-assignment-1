@@ -1,0 +1,41 @@
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+<!--<xsd:schema 
+			xmlns:xsd="http://www.w3.org/2001/XMLSchema" 
+			xmlns:jaxb="http://java.sun.com/xml/ns/jaxb" 
+			xmlns:xjc="http://java.sun.com/xml/ns/jaxb/xjc"
+			jaxb:extensionBindingPrefixes="xjc" 
+			elementFormDefault="unqualified" 
+			attributeFormDefault="unqualified" 
+			version="0.2" 
+			xml:lang="en" 
+			jaxb:version="2.0">-->
+
+	<xsd:element name="people" type="peopleType" />
+    <xsd:complexType name="peopleType">
+    	<xsd:sequence>
+    		<xsd:element maxOccurs="unbounded" ref="person"/>
+      	</xsd:sequence>
+    </xsd:complexType>
+
+	<xsd:element name="person" type="personType" />
+	<xsd:complexType name="personType">
+		<xsd:sequence>
+			<xsd:element name="firstname" type="xsd:string" />
+			<xsd:element name="lastname" type="xsd:string" />
+			<xsd:element name="birthdate" type="xsd:date" />
+			<xsd:element name="activitypreference" type="activityType"/>
+		</xsd:sequence>
+		<xsd:attribute name="id" type="xsd:integer"/>
+	</xsd:complexType>
+	
+	<xsd:complexType name="activityType">
+		<xsd:sequence>
+			<xsd:element name="name" type="xsd:string" />
+			<xsd:element name="description" type="xsd:string" />
+			<xsd:element name="place" type="xsd:string" />
+			<xsd:element name="startdate" type="xsd:dateTime" />
+		</xsd:sequence>
+		<xsd:attribute name="id" type="xsd:integer"/>
+	</xsd:complexType>
+
+</xsd:schema>

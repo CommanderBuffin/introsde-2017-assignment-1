@@ -1,0 +1,224 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<people>
+    <person id="0001">
+        <firstname>Bond R.</firstname>
+        <lastname>Martin</lastname>
+        <birthdate>1984-09-20</birthdate>
+        <activitypreference id="100">
+            <name>Running</name>
+            <description>Running to the Park</description>
+            <place>Gocciadoro</place>
+            <startdate>2017-10-14T11:50:00.0</startdate>
+        </activitypreference>
+    </person>
+    <!-- add more people to the db --> 
+    <person id="0002">
+        <firstname>Riccardo</firstname>
+        <lastname>Rossi</lastname>
+        <birthdate>1994-09-01</birthdate>
+        <activitypreference id="100">
+            <name>Running</name>
+            <description>Running to the Park</description>
+            <place>Gocciadoro</place>
+            <startdate>2018-10-13T11:50:00.0</startdate>
+        </activitypreference>
+    </person>
+    <person id="0003">
+        <firstname>Federico</firstname>
+        <lastname>Bianchi</lastname>
+        <birthdate>1993-10-22</birthdate>
+        <activitypreference id="100">
+            <name>Running</name>
+            <description>Running to the Park</description>
+            <place>Gocciadoro</place>
+            <startdate>2017-10-12T11:50:00.0</startdate>
+        </activitypreference>
+    </person>
+    <person id="0004">
+        <firstname>Davide</firstname>
+        <lastname>Viola</lastname>
+        <birthdate>1994-02-20</birthdate>
+        <activitypreference id="100">
+            <name>Running</name>
+            <description>Running to the Park</description>
+            <place>Gocciadoro</place>
+            <startdate>2017-09-13T11:50:00.0</startdate>
+        </activitypreference>
+    </person>
+    <person id="0005">
+        <firstname>Michele</firstname>
+        <lastname>Gialli</lastname>
+        <birthdate>1994-01-04</birthdate>
+        <activitypreference id="100">
+            <name>Running</name>
+            <description>Running to the Park</description>
+            <place>Gocciadoro</place>
+            <startdate>2017-10-11T11:50:00.0</startdate>
+        </activitypreference>
+    </person>
+    <person id="0006">
+        <firstname>Giuliano</firstname>
+        <lastname>Verdi</lastname>
+        <birthdate>1994-07-10</birthdate>
+        <activitypreference id="100">
+            <name>Running</name>
+            <description>Running to the Park</description>
+            <place>Gocciadoro</place>
+            <startdate>2014-10-13T11:50:00.0</startdate>
+        </activitypreference>
+    </person>
+    <person id="0007">
+        <firstname>Marco</firstname>
+        <lastname>Arancio</lastname>
+        <birthdate>1994-06-20</birthdate>
+        <activitypreference id="100">
+            <name>Running</name>
+            <description>Running to the Park</description>
+            <place>Gocciadoro</place>
+            <startdate>2017-10-09T11:50:00.0</startdate>
+        </activitypreference>
+    </person>
+    <person id="0008">
+        <firstname>Ferdinando</firstname>
+        <lastname>Azzurro</lastname>
+        <birthdate>1994-11-25</birthdate>
+        <activitypreference id="100">
+            <name>Running</name>
+            <description>Running to the Park</description>
+            <place>Gocciadoro</place>
+            <startdate>2017-07-13T11:50:00.0</startdate>
+        </activitypreference>
+    </person>
+    <person id="0009">
+        <firstname>Christian</firstname>
+        <lastname>Veneto</lastname>
+        <birthdate>1994-04-20</birthdate>
+        <activitypreference id="100">
+            <name>Running</name>
+            <description>Running to the Park</description>
+            <place>Gocciadoro</place>
+            <startdate>2017-12-13T11:50:00.0</startdate>
+        </activitypreference>
+    </person>
+    <person id="0010">
+        <firstname>Luca</firstname>
+        <lastname>Paris</lastname>
+        <birthdate>1994-03-10</birthdate>
+        <activitypreference id="100">
+            <name>Running</name>
+            <description>Running to the Park</description>
+            <place>Gocciadoro</place>
+            <startdate>2016-10-13T11:50:00.0</startdate>
+        </activitypreference>
+    </person>
+    <person id="0011">
+        <firstname>Stefano</firstname>
+        <lastname>Chioccia</lastname>
+        <birthdate>1994-02-05</birthdate>
+        <activitypreference id="100">
+            <name>Running</name>
+            <description>Running to the Park</description>
+            <place>Gocciadoro</place>
+            <startdate>2015-10-13T11:50:00.0</startdate>
+        </activitypreference>
+    </person>
+    <person id="0012">
+        <firstname>Filippo</firstname>
+        <lastname>Martini</lastname>
+        <birthdate>1994-12-20</birthdate>
+        <activitypreference id="100">
+            <name>Running</name>
+            <description>Running to the Park</description>
+            <place>Gocciadoro</place>
+            <startdate>2017-10-18T11:50:00.0</startdate>
+        </activitypreference>
+    </person>
+    <person id="0013">
+        <firstname>Paolo</firstname>
+        <lastname>Perti</lastname>
+        <birthdate>1994-05-02</birthdate>
+        <activitypreference id="100">
+            <name>Running</name>
+            <description>Running to the Park</description>
+            <place>Gocciadoro</place>
+            <startdate>2017-09-13T11:50:00.0</startdate>
+        </activitypreference>
+    </person>
+    <person id="0014">
+        <firstname>Giulia</firstname>
+        <lastname>Fermi</lastname>
+        <birthdate>1994-08-29</birthdate>
+        <activitypreference id="100">
+            <name>Running</name>
+            <description>Running to the Park</description>
+            <place>Gocciadoro</place>
+            <startdate>2017-10-13T11:50:00.0</startdate>
+        </activitypreference>
+    </person>
+    <person id="0015">
+        <firstname>Sofia</firstname>
+        <lastname>Micheli</lastname>
+        <birthdate>1994-11-09</birthdate>
+        <activitypreference id="100">
+            <name>Running</name>
+            <description>Running to the Park</description>
+            <place>Gocciadoro</place>
+            <startdate>2017-10-11T11:50:00.0</startdate>
+        </activitypreference>
+    </person>
+    <person id="0016">
+        <firstname>Michela</firstname>
+        <lastname>Pozzo</lastname>
+        <birthdate>1994-03-22</birthdate>
+        <activitypreference id="100">
+            <name>Running</name>
+            <description>Running to the Park</description>
+            <place>Gocciadoro</place>
+            <startdate>2017-10-13T11:50:00.0</startdate>
+        </activitypreference>
+    </person>
+    <person id="0017">
+        <firstname>Lucia</firstname>
+        <lastname>Dematte</lastname>
+        <birthdate>1994-09-28</birthdate>
+        <activitypreference id="100">
+            <name>Running</name>
+            <description>Running to the Park</description>
+            <place>Gocciadoro</place>
+            <startdate>2017-10-04T11:50:00.0</startdate>
+        </activitypreference>
+    </person>
+    <person id="0018">
+        <firstname>Simona</firstname>
+        <lastname>Lurro</lastname>
+        <birthdate>1993-03-21</birthdate>
+        <activitypreference id="100">
+            <name>Running</name>
+            <description>Running to the Park</description>
+            <place>Gocciadoro</place>
+            <startdate>2017-10-13T11:50:00.0</startdate>
+        </activitypreference>
+    </person>
+    <person id="0019">
+        <firstname>Federica</firstname>
+        <lastname>Riccardi</lastname>
+        <birthdate>1990-05-10</birthdate>
+        <activitypreference id="100">
+            <name>Running</name>
+            <description>Running to the Park</description>
+            <place>Gocciadoro</place>
+            <startdate>2017-10-13T11:50:00.0</startdate>
+        </activitypreference>
+    </person>
+    <person id="0020">
+        <firstname>Antonella</firstname>
+        <lastname>Forti</lastname>
+        <birthdate>1989-07-08</birthdate>
+        <activitypreference id="100">
+            <name>Running</name>
+            <description>Running to the Park</description>
+            <place>Gocciadoro</place>
+            <startdate>2017-10-13T11:50:00.0</startdate>
+        </activitypreference>
+    </person>
+</people>

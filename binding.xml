@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jxb:bindings version="2.1"
+              xmlns:jxb="http://java.sun.com/xml/ns/jaxb"
+              xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <jxb:globalBindings>
+        <jxb:javaType name="java.util.Date" xmlType="xsd:date"
+            parseMethod="people.XsdDateTimeConverter.XSDDateToDate"
+            printMethod="people.XsdDateTimeConverter.printDateTime"/>
+        <jxb:javaType name="java.util.Date" xmlType="xsd:dateTime"
+            parseMethod="people.XsdDateTimeConverter.XSDDatetimeToDateTime"
+            printMethod="people.XsdDateTimeConverter.printDateTime"/>
+    </jxb:globalBindings>        
+</jxb:bindings>
