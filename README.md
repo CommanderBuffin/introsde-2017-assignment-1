@@ -40,3 +40,39 @@ private static Person NodeToPerson(Node n) throws ParseException {
 	return p;
 }
 ```
+
+The following code is used to display the activity description value given a personId from the XML file after the person parsing:
+
+```
+public static String getActivityDescription(String personId) throws XPathExpressionException {
+	XPathExpression expr = xpath.compile("/people/person[@id='" + personId + "']");
+	Node node = (Node) expr.evaluate(doc, XPathConstants.NODE);
+	String s = "";
+	Person p;
+	try {
+		p = NodeToPerson(node);
+		s = "PERSON: "+p.getFirstname()+" "+p.getLastname()+"\r\nActivity description: "+p.getActivity().getDescription();
+	} catch (ParseException e) {
+		e.printStackTrace();
+	}
+	return s;
+}
+```
+
+The following code is used to display the activity place value given a personId from the XML file after the person parsing:
+
+```
+public static String getActivityPlace(String personId) throws XPathExpressionException {
+	XPathExpression expr = xpath.compile("/people/person[@id='" + personId + "']");
+	Node node = (Node) expr.evaluate(doc, XPathConstants.NODE);
+	String s = "";
+	Person p;
+	try {
+		p = NodeToPerson(node);
+		s = "Activity place: "+p.getActivity().getPlace();
+	} catch (ParseException e) {
+		e.printStackTrace();
+	}
+	return s;
+}
+```
