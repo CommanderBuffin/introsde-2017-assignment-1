@@ -9,7 +9,7 @@
 
 **Parser method to Person from a "person" XML node**
 
-The following code is used to parse a person node to a Person object getting subnodes as values:
+The following code is used to parse a person node to a Person object getting subnodes as values
 
 ```Java
 private static Person NodeToPerson(Node n) throws ParseException {
@@ -43,7 +43,7 @@ private static Person NodeToPerson(Node n) throws ParseException {
 
 **Methods to diplay people informations implemented inside PersonProfileReader.java**
 
-The following code displays the activity description value given a personId from the XML file after the person parsing:
+The following code displays the activity description value given a personId from the XML file after the person parsing
 
 ```Java
 public static String getActivityDescription(String personId) throws XPathExpressionException {
