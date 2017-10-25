@@ -3,6 +3,15 @@
 
 **Assigment 1 - Mattia Buffa mattia.buffa-1@studenti.unitn.it**
 
+**Table of Contents**
+
+- [SDE 2017 Assigment 1](#)
+	- [Project Description](#)
+		- [Code analysis](#)
+		- [Code tasks](#)
+		- [Execution](#)
+		- [Additional Notes](#)
+
 ## Project Description
 
 ### Code analysis
