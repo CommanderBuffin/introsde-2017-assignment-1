@@ -252,22 +252,22 @@ public static void main(String[] args) throws Exception {
 
 **Retrieving data through XPath**
 
-The first task of the code is to read people.xml and show data based on filter required.
-The build.xml file contains 6 target which are called by execute.evaluation, the first three tagets use XPath to filter data and print the result in a human readable format.
-Target 1 prints all the people informations using method printPeople().
-Target 2 prints the activity preference of a person filtered by id using method getPersonActivity(string personId), in the example id="0005".
+The first task of the code is to read people.xml and show data based on filter required.  
+The build.xml file contains 6 target which are called by execute.evaluation, the first three tagets use XPath to filter data and print the result in a human readable format.  
+Target 1 prints all the people informations using method printPeople().  
+Target 2 prints the activity preference of a person filtered by id using method getPersonActivity(string personId), in the example id="0005".  
 Target 3 prints all the filtered people's informations using method getPeopleByActivityDate(String date, String condition), in the exaple date="2017-13-10" and condition=">".
 
 **XSD and classes generation**
 
-The next task is the automatic generation of classes using xjc command on the schema defined by people.xsd.
-This procedure will use another file called binding.xml which let define adapters to convert XMLGreogorianCalendar type, that is the standard date type, to any other type, in this case Date from java.util package.
+The next task is the automatic generation of classes using xjc command on the schema defined by people.xsd.  
+This procedure will use another file called binding.xml which let define adapters to convert XMLGreogorianCalendar type, that is the standard date type, to any other type, in this case Date from java.util package.  
 *Alert* the binding procedure for Java 8 require the javax.xml.accessExternalSchema flag to be set on value="all", how to set it will be describe inside addition note paragraph.
 
 **Marshaller and Unmarshaller**
 
-Target 4 and Target 5 will use the previous generated classes to define JAXBMarshaller and JAXBUnmarshaller.
-Target 4 execute the marshalling to JAXBpeople.xml of three people defined inside the JAXBMarshaller.java file.
+Target 4 and Target 5 will use the previous generated classes to define JAXBMarshaller and JAXBUnmarshaller.  
+Target 4 execute the marshalling to JAXBpeople.xml of three people defined inside the JAXBMarshaller.java file.  
 Target 5 will use unmarshall the people.xml file and prints the result.
 
 **XML to Json**
@@ -276,12 +276,12 @@ Target 6 will read the people.xml file using the unmarshaller used by Target 5 a
 
 **Build.xml**
 
-The file build.xml contains all the task that will:
-	install, download and resolve ivy dependecies
-	generate classes using people.xsd
-	compile classes
-	execute targets
-	run execute.evaluation target which will call all the required targets
+The file build.xml contains all the task that will:  
+- install, download and resolve ivy dependecies  
+- generate classes using people.xsd  
+- compile classes  
+- execute targets  
+- run execute.evaluation target which will call all the required targets
 	
 ### Execution
 
@@ -291,9 +291,9 @@ In order to execute the assigment we need to have ant installed then open a term
 
 ### Additional Notes
 
-Since xjc command generate automaitcally classes based on people.xsd schema there is a problem on the default type defined for date values.
-In order to convert the default type XMLGreogorianCalendar to java.util.Date we need to bind people.xsd with binding.xml which defines how to convert date values.
-The problem is that in Java 8 there is a flag that block the binding procedure, so we need to change it.
-To solve the problem we need to create a file called "jaxp.properties" and save it inside "path\of\jdk_version\jre\lib", in my case is "C:\Program Files\Java\jdk1.8.0_144\jre\lib".
-This file have to contains this text "javax.xml.accessExternalSchema = all" without qoutes.
-Another way is to set this flag javax.xml.accessExternalSchema = all for the JVM inside your IDE and execute the target execute.evaluation from it.
+Since xjc command generate automaitcally classes based on people.xsd schema there is a problem on the default type defined for date values.  
+In order to convert the default type XMLGreogorianCalendar to java.util.Date we need to bind people.xsd with binding.xml which defines how to convert date values.  
+The problem is that in Java 8 there is a flag that block the binding procedure, so we need to change it.  
+To solve the problem we need to create a file called "jaxp.properties" and save it inside "path\of\jdk_version\jre\lib", in my case is "C:\Program Files\Java\jdk1.8.0_144\jre\lib".  
+This file have to contains this text "javax.xml.accessExternalSchema = all" without qoutes.  
+Another way is to set this flag javax.xml.accessExternalSchema = all for the JVM inside your IDE and execute the target execute.evaluation from it.  
