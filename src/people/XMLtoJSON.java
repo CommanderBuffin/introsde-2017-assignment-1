@@ -12,11 +12,8 @@ import com.fasterxml.jackson.module.jaxb.JaxbAnnotationModule;
 import people.generated.PeopleType;
 
 public class XMLtoJSON {
+	//get data from jaxbmarshall which read people.xml file
 	private static PeopleType initilizeDB() {
-		/*File xmlDocument = new File("people.xml");
-		JAXBUnMarshaller jaxbUnmarshaller = new JAXBUnMarshaller();
-		return jaxbUnmarshaller.unMarshall(xmlDocument);*/
-		//String xmlDocument = "JAXBPerson.xml";
 		JAXBMarshaller jaxbMarshaller = new JAXBMarshaller();
 		return jaxbMarshaller.generatePeople();
 	}
@@ -39,6 +36,7 @@ public class XMLtoJSON {
 	
 	        String result = mapper.writeValueAsString(people);
 	        System.out.println(result);
+			//write the new json file
 	        mapper.writeValue(new File("people.json"), people);
 		}
     }

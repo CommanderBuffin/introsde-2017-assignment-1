@@ -93,6 +93,7 @@
 		<echo message="${build.dir} has been created" />
 	</target>
 
+	<!-- clean remove all generated files -->
 	<target name="clean">
 		<echo message="Clean has been called" />
 		<delete dir="${build.dir}" />
@@ -107,14 +108,11 @@
 		<echo message="people.json has been deleted" />
 	</target>
 
+	<!-- generate create classes from people.xsd and adapters for date type using binding.xml -->
 	<target name="generate" depends="init">
 		<taskdef name="xjc" classname="com.sun.tools.xjc.XJCTask" classpathref="lib.path.id">
 		</taskdef>
 		<xjc schema="people.xsd" destdir="${src.dir}" package="${xjc.package}" binding="binding.xml">
-			<!--<binding dir="." includes="*.xjb">
-			</binding>-->
-			<!--<arg value="javax.xml.accessExternalSchema=all"/>-->
-			<!--<arg value="-disableXmlSecurity"/>-->
 		</xjc>
 	</target>
 
@@ -129,12 +127,14 @@
 		</copy>
 	</target>
 	
+	<!-- execute the print all people request -->
 	<target name="execute.1">
 		<echo message="Executing: Display people" />
 		<java classname="examples.PersonProfileReader" classpath="${build.dir}">
 			<arg value="printPeople"/>
 		</java>
 	</target>
+	<!-- execute the print person with id=5 request -->
 	<target name="execute.2">
 		<echo message="Executing: Display Activity information" />
 		<java classname="examples.PersonProfileReader" classpath="${build.dir}">
@@ -142,6 +142,7 @@
 			<arg value="0005"/>
 		</java>
 	</target>
+	<!-- execute the print all people with activity date > 2017-13-10 request -->
 	<target name="execute.3">
 		<echo message="Executing: Display filtered Activity" />
 		<java classname="examples.PersonProfileReader" classpath="${build.dir}">
@@ -151,6 +152,7 @@
 		</java>
 	</target>
 	
+	<!-- execute the marshall request -->
 	<target name="execute.4">
 		<echo message="Executing: JAXBMarshaller" />
 		<java classname="people.JAXBMarshaller" classpath="${build.dir}">
@@ -163,6 +165,7 @@
 		</java>
 	</target>
 	
+	<!-- execute the unmarshall request -->
 	<target name="execute.5">
 		<echo message="Executing: JAXBUnMarshaller" />
 		<java classname="people.JAXBUnMarshaller" classpath="${build.dir}">
@@ -175,6 +178,7 @@
 		</java>
 	</target>
 	
+	<!-- execute the conversion from xml to json request -->
 	<target name="execute.6">
 		<echo message="Executing: Converting XML to Json" />
 		<java classname="people.XMLtoJSON" classpath="${build.dir}">
@@ -184,6 +188,7 @@
 		</java>
 	</target>
 	
+	<!-- compile and execute all the requests -->
 	<target name="execute.evaluation" depends="compile,execute.1,execute.2,execute.3,execute.4,execute.5,execute.6">
 	</target>
 </project>

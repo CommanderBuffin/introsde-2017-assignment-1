@@ -85,7 +85,6 @@ public class Person {
 		r = String.format("PERSON%1$30sACTIVITY\r\nName: %2$-30sName: %3$-30s\r\nLastname: %4$-26sDescription: %5$-30s\r\nBirthdate: %6$-25sPlace: %7$-30s\r\n%8$-36sStartdate: %9$-30s\r\n",
 				"",firstname,activity.getName(),lastname,activity.getDescription(),d,activity.getPlace(),"",ad);
 		return r;
-		//return "Name="+firstname+", Lastname="+lastname+", Birthdate="+birthdate+"\r\n\tACTIVITY:\r\n\t"+activity.toString()+"\r\n";
 	}
 	
 }

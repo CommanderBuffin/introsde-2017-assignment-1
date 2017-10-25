@@ -11,9 +11,10 @@ import org.xml.sax.SAXException;
 import java.io.*;
 
 public class JAXBUnMarshaller {
+	//convert xml data to object defined from xsd (PeopleType)
 	public PeopleType unMarshall(File xmlDocument) {
 		try {
-
+			//init to config unMarshaller
 			JAXBContext jaxbContext = JAXBContext.newInstance("people.generated");
 
 			Unmarshaller unMarshaller = jaxbContext.createUnmarshaller();
@@ -31,12 +32,9 @@ public class JAXBUnMarshaller {
 
 			PeopleType people = peopleElement.getValue();
 			
+			//print all the person
 			for(PersonType person : people.getPerson()) {
 				System.out.println(formatPerson(person));
-				/*System.out.println("PERSON:\r\n"+"Name="+person.getFirstname()+", Lastname="+person.getLastname()+", Birthdate="+person.getBirthdate());
-				ActivityType activityPref = person.getActivitypreference();
-				System.out.println("\tActivity Preference:\r\n\tName="+ activityPref.getName()+", Description="+activityPref.getDescription()+", Place="+activityPref.getPlace()+", Start Date="+activityPref.getStartdate()+"\r\n");
-				*/
 			}
 			return people;
 		} catch (JAXBException e) {
@@ -48,6 +46,7 @@ public class JAXBUnMarshaller {
 		}
 	}
 	
+	//convert a Person to a String in human readable format
 	private static String formatPerson(PersonType p) {
 		String r = "";
 		String d = p.getBirthdate().getDay()+"-"+(p.getBirthdate().getMonth()+1)+"-"+(p.getBirthdate().getYear()+1900);
@@ -56,10 +55,10 @@ public class JAXBUnMarshaller {
 		r = String.format("PERSON%1$30sACTIVITY\r\nName: %2$-30sName: %3$-30s\r\nLastname: %4$-26sDescription: %5$-30s\r\nBirthdate: %6$-25sPlace: %7$-30s\r\n%8$-36sStartdate: %9$-30s\r\n",
 				"",p.getFirstname(),a.getName(),p.getLastname(),a.getDescription(),d,a.getPlace(),"",ad);
 		return r;
-		//return "Name="+firstname+", Lastname="+lastname+", Birthdate="+birthdate+"\r\n\tACTIVITY:\r\n\t"+activity.toString()+"\r\n";
 	}
 
 	public static void main(String[] argv) {
+		//open people.xml and call the unMarshaller
 		File xmlDocument = new File("people.xml");
 		JAXBUnMarshaller jaxbUnmarshaller = new JAXBUnMarshaller();
 

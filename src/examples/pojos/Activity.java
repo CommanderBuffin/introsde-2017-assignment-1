@@ -88,9 +88,7 @@ public class Activity {
 	
 	//toString method to define which data will be printed for Activity.
 	public String toString() {
-		
 		return "ACTIVITY\r\nName: "+name+"\r\nDescription: "+description+"\r\nPlace: "+place+"\r\nStartDate: "+DateToString(startDate);
-		//return "Name="+name+", Description="+description+", Place="+place+", StartDate="+DateToString(startDate);
 	}
 
 }

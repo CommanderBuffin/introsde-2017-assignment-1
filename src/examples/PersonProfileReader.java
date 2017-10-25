@@ -29,6 +29,7 @@ public class PersonProfileReader {
 	static Document doc;
     static XPath xpath;
 
+	//load people.xml file
     public void loadXML() throws ParserConfigurationException, SAXException, IOException {
 
         DocumentBuilderFactory domFactory = DocumentBuilderFactory.newInstance();
@@ -40,6 +41,7 @@ public class PersonProfileReader {
         getXPathObj();
     }
 
+	//create an xpath object from the xml
     public static XPath getXPathObj() {
 
         XPathFactory factory = XPathFactory.newInstance();
@@ -47,50 +49,50 @@ public class PersonProfileReader {
         return xpath;
     }
     
+	//return a string with filtered person name and the description of his activity
     public static String getActivityDescription(String personId) throws XPathExpressionException {
-
+		//XPath expression to filter person by id
         XPathExpression expr = xpath.compile("/people/person[@id='" + personId + "']");
         Node node = (Node) expr.evaluate(doc, XPathConstants.NODE);
-        //Person p = (Person)node;
         String s = "";
-        //System.out.println(personId);
         Person p;
 		try {
 			p = NodeToPerson(node);
-			//System.out.println("Yeah");
+			//compose a human readable string of data
 			s = "PERSON: "+p.getFirstname()+" "+p.getLastname()+"\r\nActivity description: "+p.getActivity().getDescription();
-			//return p.getActivity().getDescription();
 		} catch (ParseException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
         
         return s;
     }
     
+	//return a string with filtered person name and the place of his activity
     public static String getActivityPlace(String personId) throws XPathExpressionException {
-
+		//XPath expression to filter person by id
         XPathExpression expr = xpath.compile("/people/person[@id='" + personId + "']");
         Node node = (Node) expr.evaluate(doc, XPathConstants.NODE);
         String s = "";
         Person p;
 		try {
 			p = NodeToPerson(node);
+			//compose a human readable string of data
 			s = "Activity place: "+p.getActivity().getPlace();
 		} catch (ParseException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
         
         return s;
     }
 	
+	//return a nodelist of all the people
     private static NodeList getPeople() throws XPathExpressionException {
     	XPathExpression expr = xpath.compile("/people/person");
         NodeList nodes = (NodeList) expr.evaluate(doc, XPathConstants.NODESET);
         return nodes;
     }
     
+	//Convert a Node to Person
     private static Person NodeToPerson(Node n) throws ParseException {
     	//Person(int id, String fname, String lname, Date birthdate, Activity activity)
     	NodeList nl = n.getChildNodes();
@@ -117,21 +119,18 @@ public class PersonProfileReader {
     	return p;
     }
     
+	//return a string with all the people
     public static String printPeople(){
     	String r="";
     	NodeList people;
 		try {
 			people = getPeople();
 			for (int i = 0; i < people.getLength(); i++) {
-	        	//Person p = (Person)people.item(i);
 				Person p;
 				try {
 					p = NodeToPerson(people.item(i));
 					r+=p.toString()+"\r\n";
-					//r+= "PERSON:\r\n"+p.toString()+"\r\n";
-					//System.out.println(p.toString());
 				} catch (ParseException e) {
-					// TODO Auto-generated catch block
 					e.printStackTrace();
 				}	
 			}
@@ -141,8 +140,9 @@ public class PersonProfileReader {
         return r;
     }
     
+	//return a string with filtered person name and his activity
     public static String getPersonActivity(String personId) throws XPathExpressionException {
-    	
+    	//XPath expression to filter person by id
         XPathExpression expr = xpath.compile("/people/person[@id='" + personId + "']");
         Node node = (Node) expr.evaluate(doc, XPathConstants.NODE);
         String s="";
@@ -150,32 +150,28 @@ public class PersonProfileReader {
 		try {
 			p = NodeToPerson(node);
 			s= p.getActivity().toString();
-			//s = p.toString();
-			//s = "PERSON: "+p.getFirstname()+" "+p.getLastname()+"\r\nActivity: "+p.getActivity().toString();
 		} catch (ParseException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
         
         return s;
     }
     
+	//return a string with person and his activity filtered by date and a condition
     public static String getPeopleByActivityDate(String date, String condition) throws XPathExpressionException {
     	
     	String r="";
     	String s_date = date.split("-")[0]+date.split("-")[2]+date.split("-")[1];
-    	//XPathExpression expr = xpath.compile("//person[(number( translate(translate(translate(translate(activitypreference/startdate,'-',''),'T',''),':',''),'.','') ) )"+condition+s_date+"]");
-    	XPathExpression expr = xpath.compile("//person[(number(substring( translate(activitypreference/startdate,'-T:.',''),1,8)))"+condition+s_date+"]");
+    	//XPath expression to get all people filtering by date and condition on his activity
+		XPathExpression expr = xpath.compile("//person[(number(substring( translate(activitypreference/startdate,'-T:.',''),1,8)))"+condition+s_date+"]");
         NodeList nodes = (NodeList) expr.evaluate(doc, XPathConstants.NODESET);
         for (int i = 0; i < nodes.getLength(); i++) {
         	//Person p = (Person)nodes.item(i);
         	Person p;
 			try {
 				p = NodeToPerson(nodes.item(i));
-				//r+= "PERSON:\r\n"+p.toString()+"\r\n";
 				r+=p.toString()+"\r\n";
 			} catch (ParseException e) {
-				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
 		}
@@ -190,17 +186,15 @@ public class PersonProfileReader {
 	 * @throws XPathExpressionException 
 	 */
     public static void main(String[] args) throws ParserConfigurationException, SAXException, IOException, XPathExpressionException {
-    	//System.out.println("Main:");
+    	
     	PersonProfileReader ppr = new PersonProfileReader();
+		//load xml
         ppr.loadXML();
-        //System.out.println(args[0]);
-        //System.out.println(args[1]);
+		//switch to call different methods
         switch(args[0]) {
 	    	case "printPeople": System.out.println(printPeople()); break;
 	    	case "fullActivity":  
 	    		if(args[1]!=null) {
-					//System.out.println(getActivityDescription(args[1]));
-	    			//System.out.println(getActivityPlace(args[1]));
 	    			System.out.println(getPersonActivity(args[1]));
 	    		}
 				break;

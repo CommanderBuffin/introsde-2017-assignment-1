@@ -16,16 +16,18 @@ import java.util.Date;
 import java.util.GregorianCalendar;
 
 public class JAXBMarshaller {
+	//generate a file xml JAXBPerson.xml
 	public void generateXMLDocument(File xmlDocument) throws DatatypeConfigurationException {
 		try {
-
+			//init jaxb marshaller
 			JAXBContext jaxbContext = JAXBContext.newInstance("people.generated");
 			Marshaller marshaller = jaxbContext.createMarshaller();
 			marshaller.setProperty("jaxb.formatted.output", new Boolean(true));
 			people.generated.ObjectFactory factory = new people.generated.ObjectFactory();
-			//people.addPerson(person);
+			
 			PeopleType people = generatePeople();
 			
+			//write data
 			JAXBElement<PeopleType> peopleElement = factory.createPeople(people);
 			marshaller.marshal(peopleElement,
 					new FileOutputStream(xmlDocument));
@@ -41,15 +43,19 @@ public class JAXBMarshaller {
 
 	}
 	
+	//generate PeopleType adding 3 PersonType created via code
 	public PeopleType generatePeople() {
 		people.generated.ObjectFactory factory = new people.generated.ObjectFactory();
 
 		PeopleType people = factory.createPeopleType();
 		
 		for(int i = 0; i < 3; i++) {
+			//setting person data
 			PersonType person = factory.createPersonType();
 			person.setFirstname("Firstname"+i);
 			person.setLastname("Lastname"+i);
+			
+			//old instruction to use GregorianCalendar date
 			/*GregorianCalendar gcalendar = new GregorianCalendar();
 			gcalendar.setTime(new Date());
 			XMLGregorianCalendar xmlDate = null;
@@ -64,6 +70,7 @@ public class JAXBMarshaller {
 			person.setBirthdate(xmlDate);
 			person.setId(BigInteger.valueOf(1+i));
 			
+			//setting activity data
 			ActivityType activity = factory.createActivityType();
 			activity.setName("Name"+i);
 			activity.setDescription("Description"+i);
