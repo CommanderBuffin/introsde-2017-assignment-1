@@ -262,7 +262,7 @@ Target 3 prints all the filtered people's information using getPeopleByActivityD
 
 The next task consist of automatic generation of classes using xjc command on the schema defined by people.xsd.  
 This procedure will use another file named binding.xml which it allows to define adapters to convert XMLGreogorianCalendar type, that is the standard date type, to any other type, in this case Date from java.util package.  
-**_Alert_** _the binding procedure for Java 8 requires the javax.xml.accessExternalSchema flag to be set on value="all", how to set it will be described inside Additional Notes paragraph._
+**_Alert:_** _the binding procedure for Java 8 requires the javax.xml.accessExternalSchema flag to be set on value="all", how to set it will be described inside Additional Notes paragraph._
 
 **Marshaller and Unmarshaller**
 
@@ -285,7 +285,7 @@ The file build.xml contains all the task that will:
 	
 ### Execution
 
-**_Alert_** _before executing check to have set javax.xml.accessExternalSchema=all, for more information see Additional Notes paragraph._
+**_Alert:_** _before executing check to have set javax.xml.accessExternalSchema=all, for more information see Additional Notes paragraph._
 
 In order to execute the assigment we need to have ant installed: open a terminal, navigate to the root project folder and run this instruction "ant execute.evaluation".
 
