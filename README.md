@@ -262,7 +262,7 @@ Target 3 prints all the filtered people's informations using method getPeopleByA
 
 The next task is the automatic generation of classes using xjc command on the schema defined by people.xsd.  
 This procedure will use another file called binding.xml which let define adapters to convert XMLGreogorianCalendar type, that is the standard date type, to any other type, in this case Date from java.util package.  
-**_Alert_** _the binding procedure for Java 8 require the javax.xml.accessExternalSchema flag to be set on value="all", how to set it will be describe inside addition note paragraph._
+**_Alert_** _the binding procedure for Java 8 require the javax.xml.accessExternalSchema flag to be set on value="all", how to set it will be describe inside Additional Notes paragraph._
 
 **Marshaller and Unmarshaller**
 
