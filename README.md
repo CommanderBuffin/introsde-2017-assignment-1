@@ -5,12 +5,12 @@
 
 **Table of Contents**
 
-- [SDE 2017 Assigment 1](#)
-	- [Project Description](#)
-		- [Code analysis](#)
-		- [Code tasks](#)
-		- [Execution](#)
-		- [Additional Notes](#)
+- [SDE 2017 Assigment 1](#sde-2017-assigment-1)
+	- [Project Description](#project-description)
+		- [Code analysis](#code-analysis)
+		- [Code tasks](#code-tasks)
+		- [Execution](#execution)
+		- [Additional Notes](#additional-notes)
 
 ## Project Description
 
@@ -188,7 +188,7 @@ public void generateXMLDocument(File xmlDocument) throws DatatypeConfigurationEx
 }
 ```
 
-The following code use the people.xsd schema to read people.xml file and unmarshal it to generate PeopleType, PersonType and ActivityType objects and prints them
+The following code uses the people.xsd schema to read people.xml file and unmarshal it to generate PeopleType, PersonType and ActivityType objects and prints them
 
 ```Java
 public PeopleType unMarshall(File xmlDocument) {
@@ -227,7 +227,7 @@ public PeopleType unMarshall(File xmlDocument) {
 
 **XML to Json convertion**
 
-The following code use Jackson library to convert XML data to Json generating people.json and prints the result
+The following code uses Jackson library to convert XML data to Json generating people.json and prints the result
 
 ```Java
 private static PeopleType initilizeDB() {
@@ -263,13 +263,13 @@ public static void main(String[] args) throws Exception {
 
 The first task of the code is to read people.xml and to show data based on the required filter.  
 The build.xml file contains 6 targets which are called by execute.evaluation, the first three targets use XPath to filter data and to print the results in a human readable format.  
-Target 1 prints all the people information using printPeople() method.  
+Target 1 prints all the people's information using printPeople() method.  
 Target 2 filters a person using getPersonActivity(string personId) method and prints its activity preference, in the example the used id is "0005".  
-Target 3 prints all the filtered people's information using getPeopleByActivityDate(String date, String condition) method, in the exaple date="2017-13-10" and condition=">".
+Target 3 prints all the filtered people's information using getPeopleByActivityDate(String date, String condition) method, in the example date="2017-13-10" and condition=">".
 
 **XSD and classes generation**
 
-The next task consist of automatic generation of classes using xjc command on the schema defined by people.xsd.  
+The next task consists of automatic generation of classes using xjc command on the schema defined by people.xsd.  
 This procedure will use another file named binding.xml which it allows to define adapters to convert XMLGreogorianCalendar type, that is the standard date type, to any other type, in this case Date from java.util package.  
 **_Alert:_** _the binding procedure for Java 8 requires the javax.xml.accessExternalSchema flag to be set on value="all", how to set it will be described inside Additional Notes paragraph._
 
@@ -304,5 +304,5 @@ Since xjc command generates automatically classes based on people.xsd schema the
 In order to convert the default type XMLGreogorianCalendar to java.util.Date we need to bind people.xsd with binding.xml which defines how to convert date values.  
 In Java 8 there is a flag that blocks the binding procedure, so we need to change it.  
 To solve the problem we need to create a file called "jaxp.properties" and save it inside "path\of\jdk_version\jre\lib", in my case is "C:\Program Files\Java\jdk1.8.0_144\jre\lib".  
-This file has to contains this text "javax.xml.accessExternalSchema = all" without quotes.  
+This file has to contain this text "javax.xml.accessExternalSchema = all" without quotes.  
 Another way is to set this flag javax.xml.accessExternalSchema = all for the JVM inside your IDE and then execute the target execute.evaluation from it.  
