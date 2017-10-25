@@ -291,7 +291,7 @@ In order to execute the assigment we need to have ant installed then open a term
 
 ### Additional Notes
 
-Since xjc command generate automaitcally classes based on people.xsd schema there is a problem on the default type defined for date values.  
+Since xjc command generate automatically classes based on people.xsd schema there is a problem on the default type defined for date values.  
 In order to convert the default type XMLGreogorianCalendar to java.util.Date we need to bind people.xsd with binding.xml which defines how to convert date values.  
 The problem is that in Java 8 there is a flag that block the binding procedure, so we need to change it.  
 To solve the problem we need to create a file called "jaxp.properties" and save it inside "path\of\jdk_version\jre\lib", in my case is "C:\Program Files\Java\jdk1.8.0_144\jre\lib".  
