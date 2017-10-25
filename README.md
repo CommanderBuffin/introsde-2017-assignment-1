@@ -283,13 +283,13 @@ The file build.xml contains all the task that will:
 	execute targets
 	run execute.evaluation target which will call all the required targets
 	
-###Execution
+### Execution
 
 __Alert__ before executing check to have set javax.xml.accessExternalSchema=all, for information see Additional Notes paragraph.
 
 In order to execute the assigment we need to have ant installed then open a terminal, navigate to the root project folder and run this instruction: ant execute.evaluation.
 
-###Additional Notes
+### Additional Notes
 
 Since xjc command generate automaitcally classes based on people.xsd schema there is a problem on the default type defined for date values.
 In order to convert the default type XMLGreogorianCalendar to java.util.Date we need to bind people.xsd with binding.xml which defines how to convert date values.
