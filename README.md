@@ -109,7 +109,7 @@ public static String printPeople(){
 
 The following code is used to display filtered people using a condition ( >, <, =) and a date as parameters:
 
-```
+```Java
 public static String getPeopleByActivityDate(String date, String condition) throws XPathExpressionException {
 	String r="";
 	String s_date = date.split("-")[0]+date.split("-")[2]+date.split("-")[1];
