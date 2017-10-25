@@ -43,7 +43,7 @@ private static Person NodeToPerson(Node n) throws ParseException {
 
 **Methods to diplay people informations implemented inside PersonProfileReader.java**
 
-The following code is used to display the activity description value given a personId from the XML file after the person parsing:
+The following code displays the activity description value given a personId from the XML file after the person parsing:
 
 ```Java
 public static String getActivityDescription(String personId) throws XPathExpressionException {
@@ -61,7 +61,7 @@ public static String getActivityDescription(String personId) throws XPathExpress
 }
 ```
 
-The following code is used to display the activity preference of a person filtered by id
+The following code displays the activity preference of a person filtered by id
 
 ```Java
 public static String getPersonActivity(String personId) throws XPathExpressionException {	
@@ -79,7 +79,7 @@ public static String getPersonActivity(String personId) throws XPathExpressionEx
 }
 ```
 
-The following code is used to display the activity place value given a personId from the XML file after the person parsing
+The following code displays the activity place value given a personId from the XML file after the person parsing
 
 ```Java
 public static String getActivityPlace(String personId) throws XPathExpressionException {
@@ -97,7 +97,7 @@ public static String getActivityPlace(String personId) throws XPathExpressionExc
 }
 ```
 
-The following code is used to read all people and them from the XML file after the person parsing
+The following code reads all people and them from the XML file after the person parsing
 
 ```Java
 private static NodeList getPeople() throws XPathExpressionException {
@@ -127,7 +127,7 @@ public static String printPeople(){
 }
 ```
 
-The following code is used to display filtered people using a condition ( >, <, =) and a date as parameters
+The following code displays filtered people using a condition ( >, <, =) and a date as parameters
 
 ```Java
 public static String getPeopleByActivityDate(String date, String condition) throws XPathExpressionException {
@@ -148,9 +148,9 @@ public static String getPeopleByActivityDate(String date, String condition) thro
 }
 ```
 
-**Marshaller and Unmarshaller codes**
+**Marshaller and Unmarshaller code**
 
-The following code create the JAXBPerson.xml file using a marshaller based on classes generated through people.xsd schema and prints the result
+The following code creates the JAXBPerson.xml file using a marshaller based on classes generated through people.xsd schema and prints the result
 
 ```Java
 public void generateXMLDocument(File xmlDocument) throws DatatypeConfigurationException {
@@ -252,23 +252,23 @@ public static void main(String[] args) throws Exception {
 
 **Retrieving data through XPath**
 
-The first task of the code is to read people.xml and show data based on filter required.  
-The build.xml file contains 6 target which are called by execute.evaluation, the first three tagets use XPath to filter data and print the result in a human readable format.  
-Target 1 prints all the people informations using method printPeople().  
-Target 2 prints the activity preference of a person filtered by id using method getPersonActivity(string personId), in the example id="0005".  
-Target 3 prints all the filtered people's informations using method getPeopleByActivityDate(String date, String condition), in the exaple date="2017-13-10" and condition=">".
+The first task of the code is to read people.xml and to show data based on the required filter.  
+The build.xml file contains 6 targets which are called by execute.evaluation, the first three targets use XPath to filter data and to print the results in a human readable format.  
+Target 1 prints all the people information using printPeople() method.  
+Target 2 filters a person using getPersonActivity(string personId) method and prints its activity preference, in the example the used id is "0005".  
+Target 3 prints all the filtered people's information using getPeopleByActivityDate(String date, String condition) method, in the exaple date="2017-13-10" and condition=">".
 
 **XSD and classes generation**
 
-The next task is the automatic generation of classes using xjc command on the schema defined by people.xsd.  
-This procedure will use another file called binding.xml which let define adapters to convert XMLGreogorianCalendar type, that is the standard date type, to any other type, in this case Date from java.util package.  
-**_Alert_** _the binding procedure for Java 8 require the javax.xml.accessExternalSchema flag to be set on value="all", how to set it will be describe inside Additional Notes paragraph._
+The next task consist of automatic generation of classes using xjc command on the schema defined by people.xsd.  
+This procedure will use another file named binding.xml which it allows to define adapters to convert XMLGreogorianCalendar type, that is the standard date type, to any other type, in this case Date from java.util package.  
+**_Alert_** _the binding procedure for Java 8 requires the javax.xml.accessExternalSchema flag to be set on value="all", how to set it will be described inside Additional Notes paragraph._
 
 **Marshaller and Unmarshaller**
 
 Target 4 and Target 5 will use the previous generated classes to define JAXBMarshaller and JAXBUnmarshaller.  
-Target 4 execute the marshalling to JAXBpeople.xml of three people defined inside the JAXBMarshaller.java file.  
-Target 5 will use unmarshall the people.xml file and prints the result.
+Target 4 executes the marshalling to JAXBpeople.xml of three people defined inside the JAXBMarshaller.java file.  
+Target 5 will unmarshall the people.xml file and prints the result.
 
 **XML to Json**
 
@@ -277,7 +277,7 @@ Target 6 will read the people.xml file using the unmarshaller used by Target 5 a
 **Build.xml**
 
 The file build.xml contains all the task that will:  
-- install, download and resolve ivy dependecies  
+- install, download and resolve ivy dependencies  
 - generate classes using people.xsd  
 - compile classes  
 - execute targets  
@@ -285,15 +285,15 @@ The file build.xml contains all the task that will:
 	
 ### Execution
 
-**_Alert_** _before executing check to have set javax.xml.accessExternalSchema=all, for information see Additional Notes paragraph._
+**_Alert_** _before executing check to have set javax.xml.accessExternalSchema=all, for more information see Additional Notes paragraph._
 
-In order to execute the assigment we need to have ant installed then open a terminal, navigate to the root project folder and run this instruction: ant execute.evaluation.
+In order to execute the assigment we need to have ant installed: open a terminal, navigate to the root project folder and run this instruction "ant execute.evaluation".
 
 ### Additional Notes
 
-Since xjc command generate automatically classes based on people.xsd schema there is a problem on the default type defined for date values.  
+Since xjc command generates automatically classes based on people.xsd schema there is a problem with the default type defined for date values.  
 In order to convert the default type XMLGreogorianCalendar to java.util.Date we need to bind people.xsd with binding.xml which defines how to convert date values.  
-The problem is that in Java 8 there is a flag that block the binding procedure, so we need to change it.  
+In Java 8 there is a flag that blocks the binding procedure, so we need to change it.  
 To solve the problem we need to create a file called "jaxp.properties" and save it inside "path\of\jdk_version\jre\lib", in my case is "C:\Program Files\Java\jdk1.8.0_144\jre\lib".  
-This file have to contains this text "javax.xml.accessExternalSchema = all" without quotes.  
-Another way is to set this flag javax.xml.accessExternalSchema = all for the JVM inside your IDE and execute the target execute.evaluation from it.  
+This file has to contains this text "javax.xml.accessExternalSchema = all" without quotes.  
+Another way is to set this flag javax.xml.accessExternalSchema = all for the JVM inside your IDE and then execute the target execute.evaluation from it.  
