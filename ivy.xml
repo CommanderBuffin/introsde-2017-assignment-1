@@ -26,9 +26,9 @@
 	</info>
 	<dependencies>
 	
-        <dependency org="javax.xml.bind" name="jaxb-api" rev="2.3.0"/>
-        <dependency org="com.sun.xml.bind" name="jaxb-impl" rev="2.2.7"/>
-        <dependency org="com.sun.xml.bind" name="jaxb-xjc" rev="2.3.0"/>
+        <dependency org="javax.xml.bind" name="jaxb-api" rev="2.2"/>
+        <dependency org="com.sun.xml.bind" name="jaxb-impl" rev="2.2"/>
+        <dependency org="com.sun.xml.bind" name="jaxb-xjc" rev="2.2"/>
         
         <dependency org="com.fasterxml.jackson.core" name="jackson-core" rev="2.9.2"/>
         <dependency org="com.fasterxml.jackson.core" name="jackson-annotations" rev="2.9.2"/>

@@ -22,10 +22,6 @@
 	<property name="ivy.jar.dir" value="${basedir}/ivy" />
 	<property name="ivy.jar.file" value="${ivy.jar.dir}/ivy.jar" />
 	<property name="build.dir" value="build" />
-	<property environment="env" />
-	<property name="env.ANT_OPTS" value="-Djavax.xml.accessExternalSchema=all"  />
-
-	<!--<sysproperty key="-Djavax.xml.accessExternalSchema" value="all" />-->
 
 	<!-- this targe will donwload ivy.jar if its inot in the "ivy" folder yet -->
 	<target name="download-ivy" unless="skip.download">
