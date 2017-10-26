@@ -293,7 +293,10 @@ The file build.xml contains all the task that will:
 	
 ### Execution
 
-In order to execute the assigment we need to have ant installed: open a terminal, navigate to the root project folder and run this instruction "ant execute.evaluation".
+In order to execute the assigment we need to have ant installed: open a terminal, navigate to the root project folder and run this instruction 
+```
+ant execute.evaluation
+```
 
 ### Additional Notes
 
