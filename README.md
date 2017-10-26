@@ -271,7 +271,6 @@ Target 3 prints all the filtered people's information using getPeopleByActivityD
 
 The next task consists of automatic generation of classes using xjc command on the schema defined by people.xsd.  
 This procedure will use another file named binding.xml which it allows to define adapters to convert XMLGreogorianCalendar type, that is the standard date type, to any other type, in this case Date from java.util package.  
-**_Alert:_** _the binding procedure for Java 8 requires the javax.xml.accessExternalSchema flag to be set on value="all", how to set it will be described inside Additional Notes paragraph._
 
 **Marshaller and Unmarshaller**
 
@@ -294,15 +293,13 @@ The file build.xml contains all the task that will:
 	
 ### Execution
 
-**_Alert:_** _before executing check to have set javax.xml.accessExternalSchema=all, for more information see Additional Notes paragraph._
-
 In order to execute the assigment we need to have ant installed: open a terminal, navigate to the root project folder and run this instruction "ant execute.evaluation".
 
 ### Additional Notes
 
-Since xjc command generates automatically classes based on people.xsd schema there is a problem with the default type defined for date values.  
-In order to convert the default type XMLGreogorianCalendar to java.util.Date we need to bind people.xsd with binding.xml which defines how to convert date values.  
-In Java 8 there is a flag that blocks the binding procedure, so we need to change it.  
-To solve the problem we need to create a file called "jaxp.properties" and save it inside "path\of\jdk_version\jre\lib", in my case is "C:\Program Files\Java\jdk1.8.0_144\jre\lib".  
-This file has to contain this text "javax.xml.accessExternalSchema = all" without quotes.  
-Another way is to set this flag javax.xml.accessExternalSchema = all for the JVM inside your IDE and then execute the target execute.evaluation from it.  
+Target's parameters format:  
+- Target 2 requires personId with zeros to compose the value, for example "0005"  
+- Target 3 requires a date in "yyyy-dd-MM" format  
+Target 3 cannot has "<" as condition since it is not accepted due to xml standard definition.  
+  
+*Bugs don't exist there are only strange features.*
