@@ -300,6 +300,6 @@ In order to execute the assigment we need to have ant installed: open a terminal
 Target's parameters format:  
 - Target 2 requires personId with zeros to compose the value, for example "0005"  
 - Target 3 requires a date in "yyyy-dd-MM" format  
-Target 3 cannot has "<" as condition since it is not accepted due to xml standard definition.  
+- Target 3 cannot has "<" as condition since it is not accepted due to xml standard definition.  
   
 *Bugs don't exist there are only strange features.*
